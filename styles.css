@@ -1,0 +1,182 @@
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+
+    --dark-blue: hsl(234, 12%, 34%);
+    --grayish-blue: hsl(229, 6%, 66%);
+    --shadow-color: hsla(229, 6%, 66%, 0.4);
+    --light-gray: hsl(0, 0%, 98%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-gray);
+}
+
+.main-content {
+    height: 100dvh;
+    display: grid;  
+    place-items: center;    /* Horizontally center */
+    align-content: center;  /* Vertically center */
+}
+
+/* Header section */
+.header {
+    text-align: center;
+    color: var(--dark-blue);
+    margin-bottom: 4rem;
+}
+
+.header-title {
+    font-size: 2.2rem;
+    font-weight: 200;
+    margin-bottom: -0.5rem;
+}
+
+.header-sub-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.header-caption {
+    max-width: 60%;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--grayish-blue);
+}
+
+
+/* Div containing all four cards */
+.card-container {
+    max-width: 75%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 1.5rem;
+}
+
+/* Individual card div */
+.card-div {
+    max-width: 350px; /* Prevents each card-div from stretching on wide screens */
+    padding:1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 0.9rem 0.1rem var(--shadow-color);
+}
+
+/* Different colored top borders for all card divs */
+.border-cyan {
+    border-top: 0.3rem solid var(--cyan);
+}
+.border-red {
+    border-top: 0.3rem solid var(--red);
+}
+.border-orange {
+    border-top: 0.3rem solid var(--orange);
+}
+.border-blue {
+    border-top: 0.3rem solid var(--blue);
+}
+
+
+/* Gap between the two card divs in the middle column */
+.middle-column .card-div:first-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.card-caption {
+    max-width: 90%;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--grayish-blue);
+    margin-bottom: 3rem;
+}
+
+.card-icon-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media only screen and (max-width: 1240px) {
+    .card-container {
+        max-width: 90%;
+    }
+}
+
+/* Changes the card layout to 2 columns instead of 3 (2x2 tiles) */
+@media only screen and (max-width: 1030px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .middle-column {
+        grid-row: span 2;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    /* Unsets height of the page and adds space on top and bottom edges */
+    .main-content {
+        height: unset;
+        margin: 6rem 0;
+    }
+
+    .header-caption {
+        max-width: 80%;
+    }
+
+    /* Changes the card layout to a single column */
+    .card-container {
+        grid-template-columns: 1fr ;
+    }
+}
+
+/* Scale down the text in the header section */
+@media only screen and (max-width: 500px) {
+    .header-title {
+        font-size: 1.9rem;
+        margin-bottom: 0;
+    }
+
+    .header-sub-title {
+        font-size: 1.9rem;
+    }
+}
+
+/* Further scale down header text*/
+@media only screen and (max-width: 420px) {
+    .header-title , .header-sub-title{
+        font-size: 1.6rem;
+    }
+
+    .header-caption {
+        max-width: 90%;
+    }
+}
+
+/* Header text on super small width devices (up to 320px of width)*/
+@media only screen and (max-width: 365px) {
+    .header-title, .header-sub-title {
+        font-size: 1.4rem;
+    }
+
+    .header-caption {
+       font-size: 0.87rem;
+    }
+}
